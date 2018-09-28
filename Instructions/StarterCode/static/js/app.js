@@ -17,6 +17,7 @@ d3.select("#filter-btn").on("click", function() {
 	var dateValue = d3.select('#datetime').property('value');
 	var city = d3.select('#city').property('value').toLowerCase();
 	var state = d3.select('#state').property('value').toLowerCase();
+	var shape = d3.select('#shape').property('value').toLowerCase();
 	var country = d3.select('input[name="country"]:checked').node().value;
 	console.log("Date"+dateValue + "City"+city + "State"+state + "Country"+country);
 	var filteredValues = tableData;
@@ -31,6 +32,10 @@ d3.select("#filter-btn").on("click", function() {
 	}
 	if(state) {
 		filteredValues = filteredValues.filter(ufo => ufo.state == state);
+		console.log(state);
+	}
+	if(shape) {
+		filteredValues = filteredValues.filter(ufo => ufo.shape == shape);
 		console.log(state);
 	}
 	if(country) {
